@@ -9,10 +9,12 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.util.List;
 
-import org.hibernate.annotations.ColumnDefault;
+
 
 @Entity
 @Table(name = "usuario")
@@ -23,18 +25,26 @@ public class Usuario {
     @Column(name = "id")
     private long id;
 
-    @Column(name = "cpf", nullable = false, length = 14)
+    @Column(name = "cpf", nullable = false, length = 14, unique = true)
     private String cpf;
 
-    @ManyToOne
+    /*@ManyToOne
     @JoinColumn(name="nivel_accesso_id")
-    private NivelAcesso nivelAcessoExemplo;
+    private NivelAcesso nivelAcessoExemplo;*/
+
 
     @ManyToMany
-    private List<NivelAcesso> nivelAcesso;
+    private List<NivelAcesso> nivelAcessos;
 
-    @Column(name = "ativo", nullable = true)
-    @ColumnDefault("true")
-    private boolean ativo = true;
+    public void setId(long id) {
+        this.id = id;
+    }
 
+    public String getCpf() {
+        return cpf;
+    }
+  
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
 }

@@ -1,5 +1,5 @@
 package com.example.demo.Model;
-import org.hibernate.annotations.ManyToAny;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -7,7 +7,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -22,6 +21,22 @@ public class NivelAcesso {
     @Column(name = "tipo", nullable = false, length = 100)
     private String tipo;
 
-    @ManyToMany
-    private NivelAcesso nivelAcesso;
+   @ManyToMany
+    private List<Usuario> usuarios;
+
+    public long getId() {
+        return id;
+    }
+
+      public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
 }
