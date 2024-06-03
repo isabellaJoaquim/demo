@@ -7,7 +7,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -45,8 +47,9 @@ public class Pessoa {
     @ManyToMany
     private List<Deficiencia> deficiencias;
 
-    @ManyToMany
-    private List<Endereco> enderecos;
+    @OneToMany
+    @JoinColumn(name="endereco_id")
+    private Endereco endereco;
 
     public long getId() {
         return id;
