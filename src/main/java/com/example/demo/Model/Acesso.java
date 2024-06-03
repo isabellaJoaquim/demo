@@ -1,5 +1,7 @@
 package com.example.demo.Model;
 
+import java.util.Date;
+
 import org.springframework.format.datetime.standard.DateTimeContext;
 
 import jakarta.persistence.Column;
@@ -20,8 +22,8 @@ public class Acesso {
     @Column(name = "id")
     private long id;
 
-    @Column(name = "Data e Hora")
-    private DateTimeContext Data;
+    @Column(name = "Data")
+    private Date Data;
 
    @ManyToOne
     @JoinColumn(name="usuario_id")
@@ -35,11 +37,11 @@ public class Acesso {
         this.id = id;
     }
 
-    public DateTimeContext getData() {
+    public Date getData() {
         return Data;
     }
 
-    public void setData(DateTimeContext Data) {
+    public void setData(Date Data) {
         this.Data = Data;
     }
 }

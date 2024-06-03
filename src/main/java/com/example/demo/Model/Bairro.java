@@ -7,6 +7,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -22,7 +23,7 @@ public class Bairro {
     @Column(name = "Nome", length = 100)
     private String nome;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name="cidade_id")
     private Cidade cidade;
 

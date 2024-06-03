@@ -1,5 +1,6 @@
 package com.example.demo.Model;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 import jakarta.persistence.Column;
@@ -9,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -47,7 +49,7 @@ public class Pessoa {
     @ManyToMany
     private List<Deficiencia> deficiencias;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name="endereco_id")
     private Endereco endereco;
 

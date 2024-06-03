@@ -21,9 +21,6 @@ public class Noticia {
     @Column(name = "descricao", length = 100)
     private String descricao;
 
-    @Column(name = "img" , length =100)
-    private String img;
-
     @ManyToOne
     @JoinColumn(name="usuario_id")
     private Usuario usuarios;
@@ -42,13 +39,5 @@ public class Noticia {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
-    }
-
-    public String getImg() {
-        return img;
-    }
-
-    public void setImg(String img) {
-        this.img = img;
     }
 }
