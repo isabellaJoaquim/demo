@@ -6,12 +6,13 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
+@Getter
+@Setter
 @Table(name = "bairro")
 public class Bairro {
     
@@ -23,23 +24,7 @@ public class Bairro {
     @Column(name = "Nome", length = 100)
     private String nome;
 
-    @ManyToOne
-    @JoinColumn(name="cidade_id")
-    private Cidade cidade;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
+    public Bairro(String nome) {
         this.nome = nome;
     }
 }

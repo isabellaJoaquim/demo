@@ -1,6 +1,5 @@
 package com.example.demo.Model;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 import jakarta.persistence.Column;
@@ -11,10 +10,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
+@Getter
+@Setter
 @Table(name = "pessoa")
 public class Pessoa {
     
@@ -53,75 +55,8 @@ public class Pessoa {
     @JoinColumn(name="endereco_id")
     private Endereco endereco;
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
+    public Pessoa(String nome){
         this.nome = nome;
     }
 
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public String getNomeResponsavel() {
-        return nome_responsavel;
-    }
-
-    public void setNomeResponsavel(String nome_responsavel) {
-        this.nome_responsavel = nome_responsavel;
-    }
-
-    public String getAprovacao() {
-        return aprovacao;
-    }
-
-    public void setAprovacao(String aprovacao) {
-        this.aprovacao = aprovacao;
-    }
-
-    public LocalDate getDataNascimento() {
-        return data_nascimento;
-    }
-
-    public void setDataNascimento(LocalDate data_nascimento) {
-        this.data_nascimento = data_nascimento;
-    }
 }
