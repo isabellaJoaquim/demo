@@ -24,9 +24,6 @@ public class Pessoa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "descricao", length = 200)
-    private String descricao;
-
     @Column(name = "nome", length = 100)
     private String nome;
 
