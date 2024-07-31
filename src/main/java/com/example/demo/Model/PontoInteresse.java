@@ -12,25 +12,31 @@ import java.io.Serializable;
 
 @Entity
 @Table(
-        name = "deficiencia"
+        name = "ponto_interesse"
 )
-public class Deficiencia implements Serializable {
+public class PontoInteresse implements Serializable {
     @Id
     @GeneratedValue(
             strategy = GenerationType.IDENTITY
     )
     private Long id;
-    @Column(
-            nullable = false
-    )
+
+    @Column(nullable = false)
     private String nome;
+    
+    @Column(nullable = false)
+    private String tipo;
+    @Column(
+            nullable = true
+    )
+    private String contato;
     @ManyToOne
     @JoinColumn(
-            name = "categoria_id"
+            name = "endereco_id"
     )
-    private Categoria categoria;
+    private Endereco endereco;
 
-    public Deficiencia() {
+    public PontoInteresse() {
     }
 
     public Long getId() {
@@ -41,8 +47,16 @@ public class Deficiencia implements Serializable {
         return this.nome;
     }
 
-    public Categoria getCategoria() {
-        return this.categoria;
+    public String getTipo() {
+        return this.tipo;
+    }
+
+    public String getContato() {
+        return this.contato;
+    }
+
+    public Endereco getEndereco() {
+        return this.endereco;
     }
 
     public void setId(final Long id) {
@@ -53,8 +67,16 @@ public class Deficiencia implements Serializable {
         this.nome = nome;
     }
 
-    public void setCategoria(final Categoria categoria) {
-        this.categoria = categoria;
+    public void setTipo(final String tipo) {
+        this.tipo = tipo;
+    }
+
+    public void setContato(final String contato) {
+        this.contato = contato;
+    }
+
+    public void setEndereco(final Endereco endereco) {
+        this.endereco = endereco;
     }
 
 }

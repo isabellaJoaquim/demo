@@ -1,66 +1,74 @@
 package com.example.demo.Model;
 
+import jakarta.persistence.*;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import java.io.Serializable;
+import java.util.List;
 
 @Entity
-@Table(name = "endereco")
-public class Endereco {
-    
+@Table(
+        name = "endereco"
+)
+public class Endereco implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private long id;
-
-    @Column(name = "CEP", length = 14)
-    private String CEP;
-
-    @Column(name = "numero", nullable = false, length = 14)
-    private String numero;
-
-    @Column(name = "logradouro", length = 14)
+    @GeneratedValue(
+            strategy = GenerationType.IDENTITY
+    )
+    private Long id;
+    @Column(
+            nullable = false
+    )
     private String logradouro;
+    @Column(
+            nullable = false
+    )
+    private String cep;
+    @Column(
+            nullable = true
+    )
+    private int numero;
 
     @ManyToOne
-    @JoinColumn(name="bairro_id")
     private Bairro bairro;
+ ;
 
-    public long getId() {
-        return id;
+    public Endereco() {
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getCEP() {
-        return CEP;
-    }
-
-    public void setCEP(String CEP) {
-        this.CEP = CEP;
-    }
-
-    public String getNumero() {
-        return numero;
-    }
-
-    public void setNumero(String numero) {
-        this.numero = numero;
+    public Long getId() {
+        return this.id;
     }
 
     public String getLogradouro() {
-        return logradouro;
+        return this.logradouro;
     }
 
-    public void setLogradouro(String logradouro) {
+    public String getCep() {
+        return this.cep;
+    }
+
+    public int getNumero() {
+        return this.numero;
+    }
+
+
+
+    public void setId(final Long id) {
+        this.id = id;
+    }
+
+    public void setLogradouro(final String logradouro) {
         this.logradouro = logradouro;
     }
+
+    public void setCep(final String cep) {
+        this.cep = cep;
+    }
+
+    public void setNumero(final int numero) {
+        this.numero = numero;
+    }
+
+
+
 }
